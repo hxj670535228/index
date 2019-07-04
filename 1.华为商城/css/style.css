@@ -1,0 +1,797 @@
+/* 公共样式 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 12px;
+    line-height: 1.5;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    color: #3a3a3a;
+    background: #f9f9f9;
+}
+/* 使用自定义字体（不需要安装） */
+/* 1. 主要用来引入自定义的字体或图标库 */
+@font-face {
+    /* 字体或图标库的名称 */
+    font-family: 'iconfont';
+    /* 字体或图标库的路径 */
+    src: url('../font/iconfont.eot');
+    src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'), url('../font/iconfont.woff') format('woff'), url('../font/iconfont.ttf') format('truetype'), url('../font/iconfont.svg#iconfont') format('svg')
+}
+/* 2. 编写公共的样式，使用引入的字体或图标库 */
+.iconfont {
+    font-family: "iconfont" !important;
+    font-style: normal;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* 顶部导航 */
+
+.nav {
+    background-color: #f9f9f9;
+}
+
+.nav .container {
+    height: 36px;
+    line-height: 36px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #a4a4a4;
+}
+
+.nav a:hover {
+    color: #ca151d;
+}
+
+.nav .left, .nav .right {
+    display: flex;
+}
+
+.nav .left li, .nav .right li {
+    padding: 0 8px;
+    position: relative;
+}
+
+.nav .item:not(:first-of-type)::before {
+    content: "";
+    width: 1px;
+    height: 10px;
+    display: inline-block;
+    position: absolute;
+    top: 13px;
+    left: 0;
+    background: #d3d3d3;
+}
+
+.nav .item.dropdown {
+    position: relative;
+}
+
+.nav .item.dropdown .title {
+    height: 36px;
+    padding: 0 12px 0 10px;
+    margin-left: -10px;
+}
+
+.nav .item.dropdown .icon-dropdown {
+    position: relative;
+}
+
+.nav .item.dropdown .icon-dropdown::after {
+    content: "\e60b";
+    font-size: 14px;
+    display: block;
+    line-height: 14px;
+    position: absolute;
+    top: 0;
+    right: -14px;
+}
+
+.nav .item.dropdown:hover .icon-dropdown::after {
+    color: #cb242b;
+    content: "\e61a";
+}
+
+.nav .item.dropdown:hover::before, .nav .item.dropdown:hover+.item::before {
+    z-index: -1;
+}
+
+.nav .item.dropdown:hover {
+    background: #fff;
+}
+
+.nav .item.dropdown:hover .list {
+    display: block;
+}
+
+.nav .item.dropdown .list {
+    background: #fff;
+    box-shadow: 0 2px 36px 0 rgba(0, 0, 0, 0.07);
+    border-radius: 0 0 8px 8px;
+    position: absolute;
+    right: 0px;
+    top: 36px;
+    display: none;
+    z-index: 10;
+}
+
+.nav .item.dropdown .list li {
+    text-align: center;
+}
+
+.nav .item.dropdown .list .flex {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.nav .item.dropdown .column {
+    flex-basis: 25%;
+}
+
+.nav .item.dropdown .column:first-of-type {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center
+}
+
+.nav .item.dropdown .column .col-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.nav .item.dropdown .column .col-item {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.nav .item.dropdown .column .col-item a {
+    flex-basis: 50%;
+    line-height: 25px;
+}
+
+.nav .item.dropdown .column .icon-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background: #f7f7f7;
+    display: block;
+}
+
+.nav .item.dropdown .column .icon-logo:before {
+    content: "\e620";
+    font-size: 30px;
+    color: #b9b9b9;
+    line-height: 50px;
+    position: relative;
+    left: 10px;
+}
+
+.nav .item.dropdown .flex-column {
+    flex-direction: column;
+}
+
+.nav .item.dropdown .flex .row {
+    display: flex;
+    justify-content: center;
+    line-height: 18px;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.nav .item.dropdown .flex .row:last-of-type {
+    border-bottom: none;
+}
+
+.nav .item.dropdown .flex .row-left {
+    margin-right: 10px;
+}
+
+.nav .item.dropdown .flex .row-left img {
+    width: 90px;
+    height: 90px;
+}
+
+.nav .item.dropdown .flex .row-right {
+    flex-basis: 120px;
+}
+
+.nav .item.dropdown .flex .row-right h1 {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.nav .item.dropdown .flex .row-right p.red {
+    color: red;
+}
+
+.nav .item.dropdown .flex .row-right span.icon-andrid:before {
+    content: "\e62b";
+    font-size: 30px;
+    color: #797979;
+    line-height: 32px;
+}
+
+.nav .item.dropdown .flex .row-right span.icon-wechat:before {
+    content: "\e62c";
+    font-size: 30px;
+    color: #797979;
+    line-height: 32px;
+}
+
+.nav .item.dropdown .flex .column span.icon-minicart {
+    width: 100px;
+    height: 100px;
+    background: #f4f4f4;
+    border-radius: 50px;
+    position: relative;
+}
+
+.nav .item.dropdown .flex .column span.icon-minicart:before {
+    content: "\e627";
+    font-size: 66px;
+    line-height: 100px;
+    color: #a5a6a5;
+    position: absolute;
+    left: 16px;
+}
+
+.nav .item.dropdown .flex .flex100 {
+    align-items: center;
+    flex-basis: 100%;
+    padding: 30px 0;
+}
+
+.w119 {
+    width: 119px;
+}
+
+.w80 {
+    width: 80px;
+}
+
+.w893 {
+    width: 893px;
+}
+
+.w244 {
+    width: 244px;
+}
+
+.w460 {
+    width: 460px;
+}
+
+/* 头部导航 */
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 74px;
+}
+
+.header .container a {
+    text-decoration: none;
+    color: #333;
+}
+
+.header .container a:hover {
+    color: #ca141d;
+}
+
+.header .left, .header .right {
+    font-size: 0;
+}
+
+.header .left a, .header .right a {
+    font-size: 16px;
+}
+
+.header .left a {
+    margin-right: 20px;
+}
+
+.header .left a:hover {
+    opacity: .8;
+}
+
+.header .left a img.logo {
+    height: 36px;
+    vertical-align: middle;
+}
+
+.header .left a img.hwzq, .header .left a img.ryzq {
+    height: 24px;
+    vertical-align: middle;
+}
+
+.header .right {
+    height: 30px;
+}
+
+.header .right .input {
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    padding: 0 10px;
+    position: relative;
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid transparent;
+}
+
+.header .right .input:hover {
+    border: 1px solid #c9c9c9;
+}
+
+.header .right .input input {
+    border: none;
+    outline: none;
+    width: 280px;
+    background-color: #f0f0f0;
+    height: 25px;
+}
+
+.header .right .input span.keyword {
+    position: absolute;
+    right: 40px;
+    top: 4px;
+    line-height: 28px;
+}
+
+.header .right .input span.keyword a {
+    font-size: 14px;
+    color: #CF0A2C;
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+.header .right .input .button {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border: 0;
+    position: relative;
+    top: 3px;
+    background: transparent;
+    color: #353535;
+    font-size: 20px;
+}
+
+.header .right .input .button:hover {
+    color: #787878;
+}
+
+/* 轮播及树形菜单 */
+
+.slider {
+    height: 550px;
+    overflow: hidden;
+    border-bottom-left-radius: 100px 70px;
+    border-bottom-right-radius: 100px 70px;
+    position: relative;
+}
+
+.slider .img-box {
+    position: relative;
+}
+
+.slider .img-box a {
+    text-decoration: none;
+    display: block;
+    width: 1336px;
+    height: 550px;
+    position: absolute;
+    /* left: -330px; */
+    top: 0;
+    opacity: 0;
+    transition: all 1s;
+}
+
+.slider .img-box a:first-of-type {
+    opacity: 1;
+}
+
+.slider .img-box a img {
+    display: block;
+    height: 550px;
+}
+
+.slider span.icon-prev, .slider span.icon-next {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border: 1px solid red;
+    position: absolute;
+    top: 200px;
+    z-index: 10;
+    background: url(../img/icon01.svg) no-repeat;
+}
+
+.slider span.icon-prev {
+    left: 240px;
+    background-position: 0 -72px;
+}
+
+.slider span.icon-prev:hover {
+    background-position: -240px -72px;
+}
+
+.slider span.icon-next {
+    right: 20px;
+    background-position: -80px -72px;
+}
+
+.slider span.icon-next:hover {
+    background-position: -160px -72px;
+}
+
+.slider .pager {
+    position: absolute;
+    right: 50px;
+    bottom: 120px;
+}
+
+.slider .pager a {
+    text-decoration: none;
+    border: 1px solid #FFF;
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    line-height: 13px;
+    text-align: center;
+    color: #fff;
+    margin-left: 5px;
+    background-color: transparent;
+    cursor: default;
+}
+
+.slider .pager a.current {
+    background: #fff;
+}
+
+/* 树形菜单 */
+.slider .container {
+    position: relative;
+}
+
+.tree-nav a {
+    color: #a6a6a6;
+    text-decoration: none;
+}
+
+.tree-nav a:hover {
+    color: #ca151d;
+}
+
+.tree-nav {
+    position: absolute;
+    left: 0;
+    top: 18px;
+    width: 200px;
+    box-shadow: 0 0 46px rgba(0, 0, 0, 0.03);
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+}
+
+.tree-nav ul li {
+    padding: 12px 20px 2px 20px;
+}
+
+.tree-nav ul li:hover {
+    background: #fff;
+}
+
+.tree-nav ul li:first-of-type:hover {
+    border-top-left-radius: 10px;
+}
+
+.tree-nav ul li:last-of-type:hover {
+    border-bottom-left-radius: 10px;
+}
+
+.tree-nav ul li .title {
+    font-size: 16px;
+}
+
+.title a {
+    color: #848484;
+}
+
+.tree-nav ul li {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.tree-nav ul li .item {
+    padding-bottom: 10px;
+}
+
+.tree-nav ul li .item a {
+    margin-right: 10px;
+}
+
+.tree-nav ul li .panel {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 180px;
+    height: 100%;
+    background: #fff;
+    z-index: 200;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.tree-nav ul li:hover .panel {
+    display: block;
+    overflow: hidden;
+}
+
+.tree-nav ul li .panel .box {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.tree-nav ul li .panel .box .column {
+    width: 210px;
+    margin: 10px;
+}
+
+.tree-nav ul li .panel .box .column a {
+    display: flex;
+    align-items: center;
+    padding: 8px 10px 8px 10px;
+    margin-bottom: 28px;
+}
+
+.tree-nav ul li .panel .box .column a:hover {
+    color: #a7a7a7;
+}
+
+.tree-nav ul li .panel .box .column a:not(.more):hover {
+    background-color: #f6f6f6;
+    border-radius: 20px;
+}
+
+.tree-nav ul li .panel .box .column a img {
+    display: inline-block;
+    width: 56px;
+    height: 56px;
+    margin-right: 10px;
+}
+
+.tree-nav ul li .panel .box .column a.more {
+    display: inline-block;
+    position: relative;
+    left: 16px;
+    top: 10px;
+    padding: 13px 28px 0 51px;
+    border-radius: 30px;
+    border: 1px solid #f6f6f6;
+    height: 44px;
+}
+
+.tree-nav ul li .panel .box .column a.more::before {
+    content: "";
+    width: 42px;
+    height: 42px;
+    background: #fff;
+    border: 1px solid #f2f2f2;
+    display: block;
+    border-radius: 22px;
+    position: absolute;
+    top: -1px;
+    left: 0;
+}
+
+.tree-nav ul li .panel .box .column a.more::after {
+    content: "";
+    width: 0;
+    height: 0;
+    display: block;
+    border-bottom: 5px solid transparent;
+    border-top: 5px solid transparent;
+    border-left: 5px solid #c0c0c0;
+    position: absolute;
+    top: 16px;
+    left: 20px;
+}
+
+/* 登录部分 */
+
+.login {
+    position: relative;
+    top: -60px;
+}
+
+.login .container {
+    background: #fff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.login .left, .login .center {
+    border-right: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.login .left, .login .center, .login .right {
+    padding: 15px 0;
+}
+
+.login .left {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 270px;
+}
+
+.login .left img {
+    width: 52px;
+    height: 52px;
+}
+
+.login .left .title {
+    margin-bottom: 5px;
+}
+
+.login .left .title .greet {
+    color: #999;
+}
+
+.login .left .title .split {
+    color: #333;
+}
+
+.login .left .title a {
+    text-decoration: none;
+    color: #333;
+}
+
+.login .left .content a {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.login .left .content a:first-of-type {
+    width: 66px;
+    height: 20px;
+    line-height: 20px;
+    background: #de5b60;
+    border: 1px solid #de5b60;
+    color: #fff;
+}
+
+.login .left .content a:last-of-type {
+    width: 68px;
+    height: 22px;
+    line-height: 22px;
+    background: #595454;
+    border: 1px solid #595454;
+    color: #fde4b3;
+}
+
+.login .center {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.login .center a {
+    text-decoration: none;
+    color: #777;
+}
+
+.login .right {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.login .gg {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+}
+
+.login .right .list {
+    display: flex;
+    justify-content: space-around;
+    width: 250px;
+}
+
+.login .right .list a {
+    text-decoration: none;
+    color: #777;
+    display: flex;
+    justify-content: space-between;
+}
+
+.login .right .list a p {
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.login .container .box img {
+    position: absolute;
+    width: auto;
+    height: auto;
+    transform: scale(0.5, 0.5);
+    top: -20px;
+}
+
+.login .container .center .box {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.login .container .right .box {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    top: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.login .container .center .box .img0 {
+    left: -150px;
+}
+
+.login .container .center .box .img1 {
+    left: -190px;
+}
+
+.login .container .center .box .img2 {
+    left: -230px;
+}
+
+.login .container .center .box .img3 {
+    left: -270px;
+}
+
+.login .container .center .box .img4 {
+    left: -310px;
+}
+
+.login .container .center .box .img5 {
+    left: -350px;
+}
+
+.login .container .right .box .img0 {
+    left: -390px;
+}
+
+.login .container .right .box .img1 {
+    left: -410px;
+}
+
+.login .container .right .box .img2 {
+    left: -430px;
+}
